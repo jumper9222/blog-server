@@ -32,6 +32,10 @@ async function getPostgresVersion() {
 
 getPostgresVersion();
 
+app.get("/", (req, res) => {
+    res.send("Blog server");
+})
+
 app.get("/posts/user/:user_id", async (req, res) => {
     const { user_id } = req.params;
     const client = await pool.connect();
